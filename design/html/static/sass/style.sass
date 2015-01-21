@@ -1,0 +1,199 @@
+@import "compass/css3"
+@import "compass/typography"
+@import "font-awesome/font-awesome"
+@import "normalize"
+@import "mixins"
+
+
+
+$yellow-orange: #ffb134
+$congress-blue: #003986
+$cinderella: #fcd9d3
+$tia-maria: #e03211
+$totem-pole: #95220b
+$westar: #e3e2db
+$spring-wood: #fbf8f2
+
+
+
+/**
+ * General typography
+ */
+body
+  font-family: "Trebuchet MS", Helvetica, sans-serif
+  +font-size(24px)
+h2
+  +font-size(48px)
+  margin-top: 10px
+  margin-bottom: 17px
+h3
+  +font-size(28px)
+label
+  font-weight: bold
+  +font-size(28px)
+a
+  color: $congress-blue
+
+
+/**
+ * Layout
+ */
+// border-box everything!
+*, *:before, *:after
+  +box-sizing(border-box)
+// consistent scrollbar
+html
+  overflow-y: scroll
+
+html
+  background: $yellow-orange image-url("pattern.png") repeat center center
+  height: 100%
+
+body
+  width: 660px
+  +min-height(100%)
+  margin: 0 auto
+  background: white
+  +box-shadow()
+
+header
+  +retina-background-image("header-logo-background.png", $x2: "header-logo-background@x2.png")
+  background-repeat: no-repeat
+  background-position: top left
+  height: 305px
+  position: relative
+  > a
+    +retina-background-image("header-logo-text.png", $x2: "header-logo-text@x2.png")
+    background-repeat: no-repeat
+    background-position: top left
+    display: block
+    width: 370px
+    height: 71px
+    position: absolute
+    top: 66px
+    left: 242px
+    text-indent: -9999px
+  nav ul
+    position: absolute
+    top: 151px
+    left: 235px
+    padding: 0
+    margin: 0
+    margin-right: -24px
+    +clearfix()
+    list-style: none
+    li
+      float: left
+      margin-right: 22px
+      a
+        display: block
+        float: left
+        padding: 9px 30px 7px 30px
+        +font-size(26px)
+        font-weight: bold
+        text-decoration: none
+        color: black
+        background: $yellow-orange
+        +border-radius(4px)
+      a.active
+        background: $congress-blue
+        color: white
+
+
+main
+  +clearfix
+  padding: 0 47px
+
+
+/**
+ * Contents
+ */
+table
+  width: 100%
+  th, td
+    border-bottom: 2px solid $westar
+    padding: 4px
+  tr:last-child
+    th, td
+      border-bottom: none
+  th
+    text-align: left
+  td
+    text-align: right
+
+
+div.error
+  margin-top: -4px
+  padding: 10px 13px
+  border-top: none
+  color: $totem-pole
+  background: $cinderella
+  +border-bottom-radius(4px)
+input.text
+  height: 51px
+  padding: 9px 10px
+  border: 2px solid $westar
+  +border-radius(4px)
+.button
+  +min-height(51px)
+  +min-width(51px)
+  padding: 10px 15px
+  +font-size(28px)
+  line-height: 24px
+  font-weight: bold
+  text-align: center
+  background: $westar
+  color: black
+  +border-radius(4px)
+  border: none
+  vertical-align: bottom
+  .icon
+    position: relative
+a.button
+  +inline-block
+  text-decoration: none
+.button-add
+  .icon
+    +fa-icon-before($fa-var-plus)
+    top: 2px
+.button-view
+  .icon
+    +fa-icon-before($fa-var-rss)
+    top: 3px
+.button-remove
+  background: $tia-maria
+  color: white
+  .icon
+    +fa-icon-before($fa-var-remove)
+.button-submit
+  padding: 6px 35px 4px 35px
+  +min-height(51px)
+  +font-size(38px)
+  font-weight: bold
+  +border-radius(12px)
+  border: none
+  background: $yellow-orange
+
+.form-group
+  margin-bottom: 1.4em
+  label
+    display: block
+  .text
+    width: 100%
+
+.field-repeat-item
+  +clearfix
+  display: table
+  width: 100%
+  margin-bottom: 10px
+  .field
+    display: table-cell
+    width: 100%
+    float: left
+    vertical-align: top
+  .actions
+    display: table-cell
+    width: 1%
+    vertical-align: top
+    padding-left: 5px
+    line-height: 1em

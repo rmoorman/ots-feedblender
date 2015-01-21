@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% set blends = ['programming firehose', 'otherblend', 'yet another blend'] %}
+
+
+{% block content %}
+  <h2>current blends</h2>
+  <table>
+    {% for blend in blends %}
+      <tr>
+        <th>
+          <a href="{{ url_for('edit') }}" title="{{ blend }}">{{ blend }}</a>
+        </th>
+        <td>
+          <a href="{{ url_for('feed') }}" class="button button-view">
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">view</span>
+          </a>
+          <button class="button button-remove">
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">remove</span>
+          </button>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

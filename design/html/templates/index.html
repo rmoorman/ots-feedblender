@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<title>html</title>
+</head>
+<body>
+  <h2>html pages</h2>
+  <ul>
+    {% for page in pages|sort %}
+      <li><a href="{{ page }}">{{ page }}</a></li>
+    {% else %}
+      <li>strangely enough, no urls are listed here ...</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

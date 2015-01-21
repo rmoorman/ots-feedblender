@@ -1,0 +1,27 @@
+{% from "_macros.html" import nav_link with context -%}
+
+<!doctype html>
+<html>
+<head>
+  <title>html</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <a href="{{ url_for('index') }}">feedblender</a>
+    <nav>
+      <ul>
+        <li>{{ nav_link('add', 'add blend') }}</li>
+        <li>{{ nav_link('list', 'list blends') }}</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer>
+  </footer>
+</body>
+</html>
