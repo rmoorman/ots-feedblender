@@ -1,51 +1,59 @@
 
-<form action="" method="post">
+<form action="{{ form_action|default }}" method="get">
   <div class="form-group">
     <label for="blend-name">name of the blend</label>
-    <input type="text" id="blend-name" class="text" value="reddit and hackernews" name="name">
+    <input type="text" id="blend-name" class="text" value="{{ 'reddit and hackernews' if not form_empty }}" name="name">
   </div>
   <div class="form-group field-repeat">
-     <label>feeds to read</label>
-     <div class="field-repeat-item">
-       <div class="field">
-         <input type="text" class="text" value="http://reddit.com/r/programming/.rss" name="feed">
-       </div>
-       <span class="actions">
-         <button class="button button-remove">
-           <span class="icon" aria-hidden="true"></span>
-           <span class="sr-only">remove</span>
-         </button>
-       </span>
-     </div>
-     <div class="field-repeat-item">
-       <div class="field">
-         <input type="text" class="text" value="http://news.ycombinator.com/rss" name="feed">
-       </div>
-       <span class="actions">
-         <button class="button button-remove">
-           <span class="icon" aria-hidden="true"></span>
-           <span class="sr-only">remove</span>
-         </button>
-       </span>
-     </div>
-     <div class="field-repeat-item">
-       <div class="field">
-         <input type="text" class="text error" value="" name="feed">
-         <div class="error">this field may not be left empty</div>
-       </div>
-       <span class="actions">
-         <button class="button button-remove">
-           <span class="icon" aria-hidden="true"></span>
-           <span class="sr-only">remove</span>
-         </button>
-       </span>
-     </div>
-     <button class="button button-add">
-       <span class="icon" aria-hidden="true"></span>
-       add another feed
-     </button>
-   </div>
-   <div class="form-group">
-     <input type="submit" class="button button-submit" value="blend!" name="submit">
-   </div>
+    <label>feeds to read</label>
+    {% if not form_empty %}
+      <div class="field-repeat-item">
+        <div class="field">
+          <input type="text" class="text" value="http://reddit.com/r/programming/.rss" name="feed">
+        </div>
+        <span class="actions">
+          <button class="button button-remove">
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">remove</span>
+          </button>
+        </span>
+      </div>
+      <div class="field-repeat-item">
+        <div class="field">
+          <input type="text" class="text" value="http://news.ycombinator.com/rss" name="feed">
+        </div>
+        <span class="actions">
+          <button class="button button-remove">
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">remove</span>
+          </button>
+        </span>
+      </div>
+      <div class="field-repeat-item">
+        <div class="field">
+          <input type="text" class="text error" value="" name="feed">
+          <div class="error">this field may not be left empty</div>
+        </div>
+        <span class="actions">
+          <button class="button button-remove">
+            <span class="icon" aria-hidden="true"></span>
+            <span class="sr-only">remove</span>
+          </button>
+        </span>
+      </div>
+    {% else %}
+      <div class="field-repeat-item">
+        <div class="field">
+          <input type="text" class="text" value="" name="feed">
+        </div>
+      </div>
+    {% endif %}
+    <button class="button button-add">
+      <span class="icon" aria-hidden="true"></span>
+      add another feed
+    </button>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="button button-submit-huge" value="blend!" name="submit">
+  </div>
 </form>

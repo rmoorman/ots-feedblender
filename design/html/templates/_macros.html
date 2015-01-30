@@ -1,5 +1,6 @@
-{% macro nav_link(endpoint, text) %}
-  {% set active = request.endpoint.endswith(endpoint) %}
+{% macro nav_link(endpoint, text, active_endpoint="") %}
+  {% set current_endpoint = active_endpoint|default(request.endpoint, true) %}
+  {% set active = current_endpoint == endpoint %}
   <a
     {% if active %}class="active"{% endif %}
     href="{{ url_for(endpoint) }}"

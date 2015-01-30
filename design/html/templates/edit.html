@@ -3,5 +3,6 @@
 
 {% block content %}
   <h2>edit blend</h2>
+  {% set form_action = url_for("edited") %}
   {% include "_form.html" %}
 {% endblock %}

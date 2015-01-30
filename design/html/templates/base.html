@@ -1,4 +1,5 @@
 {% from "_macros.html" import nav_link with context -%}
+{% set active_endpoint = active_endpoint|default -%}
 
 <!doctype html>
 <html>
@@ -12,12 +13,21 @@
     <a href="{{ url_for('index') }}">feedblender</a>
     <nav>
       <ul>
-        <li>{{ nav_link('add', 'add blend') }}</li>
-        <li>{{ nav_link('list', 'list blends') }}</li>
+        <li>{{ nav_link('add', 'add blend', active_endpoint) }}</li>
+        <li>{{ nav_link('list', 'list blends', active_endpoint) }}</li>
       </ul>
     </nav>
   </header>
   <main>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
     {% block content %}
     {% endblock %}
   </main>

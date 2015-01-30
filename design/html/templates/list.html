@@ -17,10 +17,10 @@
             <span class="icon" aria-hidden="true"></span>
             <span class="sr-only">view</span>
           </a>
-          <button class="button button-remove">
+          <a href="{{ url_for('delete') }}" class="button button-remove">
             <span class="icon" aria-hidden="true"></span>
             <span class="sr-only">remove</span>
-          </button>
+          </a>
         </td>
       </tr>
     {% endfor %}

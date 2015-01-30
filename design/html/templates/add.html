@@ -3,5 +3,7 @@
 
 {% block content %}
   <h2>add a blend</h2>
+  {% set form_action = url_for("added") %}
+  {% set form_empty = true %}
   {% include "_form.html" %}
 {% endblock %}

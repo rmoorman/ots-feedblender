@@ -121,6 +121,16 @@ table
   td
     text-align: right
 
+ul.messages
+  +border-radius(4px)
+  background: lighten(desaturate($congress-blue, 60%), 65%)
+  list-style: none
+  color: $congress-blue
+  padding-left: 0.5em
+  li
+    +fa-icon-before($fa-var-check-circle)
+    &:before
+      margin-right: 0.4em
 
 div.error
   margin-top: -4px
@@ -139,7 +149,7 @@ input.text
   +min-width(51px)
   padding: 10px 15px
   +font-size(28px)
-  line-height: 24px
+  line-height: 51px - 2 * 10px
   font-weight: bold
   text-align: center
   background: $westar
@@ -155,24 +165,25 @@ a.button
 .button-add
   .icon
     +fa-icon-before($fa-var-plus)
-    top: 2px
 .button-view
   .icon
     +fa-icon-before($fa-var-rss)
-    top: 3px
 .button-remove
   background: $tia-maria
   color: white
   .icon
     +fa-icon-before($fa-var-remove)
 .button-submit
+  background: $yellow-orange
+.button-submit-huge
+  background: $yellow-orange
   padding: 6px 35px 4px 35px
   +min-height(51px)
   +font-size(38px)
   font-weight: bold
   +border-radius(12px)
   border: none
-  background: $yellow-orange
+  
 
 .form-group
   margin-bottom: 1.4em

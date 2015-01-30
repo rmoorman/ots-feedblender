@@ -6,7 +6,7 @@
 <body>
   <h2>html pages</h2>
   <ul>
-    {% for page in pages|sort %}
+    {% for page in pages %}
       <li><a href="{{ page }}">{{ page }}</a></li>
     {% else %}
       <li>strangely enough, no urls are listed here ...</li>

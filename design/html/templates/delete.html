@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h2>delete blend</h2>
+  <p>Are you sure that you want to delete this blend?</p>
+  <form action="{{ url_for('deleted') }}" method="get">
+     <div class="form-group">
+       <a href="{{ url_for('list') }}" class="button">Not really</a>
+       <input type="submit" class="button button-submit" value="Yes of course!" name="submit">
+     </div>
+  </form>
+{% endblock %}
