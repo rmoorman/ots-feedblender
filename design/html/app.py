@@ -25,7 +25,7 @@ def add():
 
 @app.route("/list/added/")
 def added():
-    flash("The new blend has been added.")
+    flash("the new blend has been added")
     return render_template("list.html", active_endpoint="list")
 
 @app.route("/edit/")
@@ -34,7 +34,7 @@ def edit():
 
 @app.route("/list/edited/")
 def edited():
-    flash("The blend data has been updated successfully.")
+    flash("the blend data has been updated successfully")
     return render_template("list.html", active_endpoint="list")
 
 @app.route("/delete/")
@@ -43,7 +43,7 @@ def delete():
 
 @app.route("/list/deleted/")
 def deleted():
-    flash("The blend has been deleted.")
+    flash("the blend has been deleted")
     return render_template("list.html", active_endpoint="list")
 
 @app.route("/list/")
