@@ -1,9 +1,17 @@
 from flask import Flask
 from flask import url_for, render_template, flash, Response
+from BeautifulSoup import BeautifulSoup
 
 
 app = Flask(__name__)
 app.secret_key = "A962B60B-765C-49A1-AF45-7C061605B34F"
+
+
+@app.after_request
+def after_request(response):
+    if response.mimetype == "text/html":
+        response.data = BeautifulSoup(response.data).prettify()
+    return response
 
 
 @app.route("/")
